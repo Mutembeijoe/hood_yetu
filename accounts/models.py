@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
     avatar = models.ImageField(upload_to='user_avatars', default='default.jpg')
-    bio = models.TextField()
+    bio = models.TextField(blank=True, null=True)
 
 
 
