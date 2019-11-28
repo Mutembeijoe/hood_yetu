@@ -30,5 +30,5 @@ class Business(models.Model):
     location = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     category = models.PositiveSmallIntegerField(choices=BUSINESS_CATEGORIES)
-    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='businesses')
  
