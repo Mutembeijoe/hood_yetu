@@ -3,6 +3,14 @@ from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 
+
+class Neighbourhood(models.Model):
+    name = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    police_hotline= ArrayField(models.CharField(max_length=13, blank=True),size=3, blank=True, null=True)
+    hospital_hotline= ArrayField(models.CharField(max_length=13, blank=True),size=3, blank=True, null=True)
+
+
 class Business(models.Model):
     FOOD = 1
     BEAUTY = 2
@@ -22,11 +30,5 @@ class Business(models.Model):
     location = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     category = models.PositiveSmallIntegerField(choices=BUSINESS_CATEGORIES)
-
-
-class Neighbourhood(models.Model):
-    name = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
-    police_hotline= ArrayField(models.CharField(max_length=13, blank=True),size=3, blank=True, null=True)
-    hospital_hotline= ArrayField(models.CharField(max_length=13, blank=True),size=3, blank=True, null=True)
-
+    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+ 
