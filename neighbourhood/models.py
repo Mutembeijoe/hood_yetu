@@ -20,7 +20,7 @@ class Business(models.Model):
 
     name = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     category = models.PositiveSmallIntegerField(choices=BUSINESS_CATEGORIES)
 
 
