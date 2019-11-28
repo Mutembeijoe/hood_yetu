@@ -7,7 +7,7 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
 
     fieldsets = UserAdmin.fieldsets + (
-        (None, {'fields': ('avatar','bio')}),
+        (None, {'fields': ('avatar','bio', 'neighbourhood')}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
         (None, {'fields': ('avatar','bio')}),
