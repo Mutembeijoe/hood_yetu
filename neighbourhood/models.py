@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from django.urls import reverse
 
 # Create your models here.
 
@@ -10,6 +11,11 @@ class Neighbourhood(models.Model):
     police_hotline= ArrayField(models.CharField(max_length=13, blank=True),size=3, blank=True, null=True)
     hospital_hotline= ArrayField(models.CharField(max_length=13, blank=True),size=3, blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 class Business(models.Model):
     FOOD = 1
@@ -32,3 +38,8 @@ class Business(models.Model):
     category = models.PositiveSmallIntegerField(choices=BUSINESS_CATEGORIES)
     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, related_name='businesses')
  
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('home')
