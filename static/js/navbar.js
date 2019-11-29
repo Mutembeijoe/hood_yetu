@@ -8,4 +8,18 @@ $(document).ready(function () {
         $(".navbar-menu").toggleClass("is-active");
 
     });
+
+
+
+    // neighbourhood tabs
+    $('#tab_header ul li.item').on('click', function () {
+        console.log('hello')
+        var number = $(this).data('option');
+        $('#tab_header ul li.item').removeClass('is-active');
+        $(this).addClass('is-active');
+        $('#tab_container .container_item').removeClass('is-active');
+        $('div[data-item="' + number + '"]').addClass('is-active');
+    });
+
+
 });

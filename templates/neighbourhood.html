@@ -2,8 +2,95 @@
 {% block content%}
 {% include 'navbar.html'%}
 <section class="section">
-    <div class="container">
-        <h3>Welcome Home</h3>
+    <section class="hero is-medium" style="background-image: url('{{object.image.url}}');">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 my_title is-marginless">
+                    Welcome to {{object.name}}
+                </h1>
+                <h2 class="subtitle my_title is-4 is-marginless">
+                    <i class="fa fa-map-marker-alt"></i>
+                    {{object.location}}
+                </h2>
+                <h2 class="subtitle my_title is-4">
+                    <span>Population :</span>
+                    {{object.residents.all | length }}
+                </h2>
+            </div>
+        </div>
+    </section>
+    <div class="mytabs container" style='margin-top: 70px;'>
+        <div class="tabs is-centered" id="tab_header">
+            <ul>
+                <li class="item is-active" data-option="1">
+                    <a>
+                        <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                        <span>Residents</span>
+                    </a>
+                </li>
+                <li class="item" data-option="2">
+                    <a>
+                        <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
+                        <span>Music</span>
+                    </a>
+                </li>
+                <li class="item" data-option="3">
+                    <a>
+                        <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
+                        <span>Videos</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="tab_container">
+            <div class="container_item is-active" data-item="1">
+                <div class="columns">
+                    {% for user in object.residents.all %}
+                    <div class="column is-one-fifths">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="{{user.avatar.url}}" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-48x48">
+                                            <img src="{{user.avatar.url}}" alt="Placeholder image">
+                                        </figure>
+                                    </div>
+                                    <div class="media-content">
+                                        <p class="title is-4">{{user.username}}</p>
+                                        <p class="subtitle is-6">{{user.email}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    {{user.bio}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="container_item" data-item="2">
+                Nobis quibusdam veritatis voluptatum, quasi. Unde eaque reprehenderit expedita at earum, accusantium
+                laudantium vitae minima, veritatis in dolorem, illo itaque nihil cum iusto tenetur saepe repellendus nam
+                eum culpa magnam quae! Nam, deleniti? Hic quibusdam sed perferendis quasi mollitia! Obcaecati recusandae
+                fugiat itaque nihil vel, mollitia modi, repellat, voluptatibus, repellendus nostrum nisi veritatis. Odit
+                magnam quia magni quibusdam molestiae ut.
+            </div>
+            <div class="container_item" data-item="3">
+                Beatae neque magni recusandae tempore ad nobis magnam. Explicabo, a! Molestiae aperiam necessitatibus
+                suscipit mollitia dolorum quas possimus ipsa, nemo quod ipsam veniam, incidunt maxime quos iusto
+                reiciendis. Eligendi cupiditate asperiores fuga dolore. Reiciendis eligendi eaque autem, aperiam
+                delectus nesciunt enim similique ut laborum blanditiis tempora quidem, nobis unde incidunt alias atque
+                dignissimos recusandae quibusdam cum dolor voluptas corrupti!
+            </div>
+        </div>
     </div>
+
 </section>
 {% endblock%}

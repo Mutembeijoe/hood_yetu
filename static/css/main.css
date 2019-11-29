@@ -1,0 +1,12 @@
+.my_title{
+    color:hsl(0, 0%, 100%);
+}
+
+/* neighbourhood tabs */
+#tab_container .container_item {
+    display: none;
+  }
+  
+#tab_container .container_item.is-active {
+    display: block;
+}
