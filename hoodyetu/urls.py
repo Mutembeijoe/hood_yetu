@@ -25,6 +25,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="mainpage.html"), name="mainpage"),
     path('users/', include('accounts.urls')),
     path('users/', include('django.contrib.auth.urls')),
+    path('neighbourhoods/', include('neighbourhood.urls'))
 ]
 
 if settings.DEBUG:
