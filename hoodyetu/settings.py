@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 
     #local 
     'accounts.apps.AccountsConfig',
-    'neighbourhood.apps.NeighbourhoodConfig'
+    'neighbourhood.apps.NeighbourhoodConfig',
+    'posts.apps.PostsConfig'
 ]
 
 MIDDLEWARE = [
