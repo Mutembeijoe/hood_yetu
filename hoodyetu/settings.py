@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #3rd party
+    'bulma',
 
     #local 
     'accounts.apps.AccountsConfig',
