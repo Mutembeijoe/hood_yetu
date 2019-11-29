@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+{% load bulma_tags %}
+{% block content %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form | bulma}}
+    <button type="submit">Create</button>
+</form>
+{% endblock content %}
