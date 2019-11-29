@@ -85,7 +85,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'neighbourhood',
+        'NAME': 'hood',
         'USER': 'orion',
         'PASSWORD': 'root',
         'HOST': 'localhost',
