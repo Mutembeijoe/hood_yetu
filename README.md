@@ -14,7 +14,7 @@ hood-yetu is a web application that allows you to be in the loop about everythin
      ```bash
         python manage.py runserver
     ```
-* You can view the live version of the app in [Live page](https://hood-yetu.herokuapp.com/  "hood-yetu")
+* You can view the live version of the app in [Live page](https://agile-plateau-53393.herokuapp.com/  "hood-yetu")
 
 ## Screenshots
 ![image](https://github.com/Mutembeijoe/hood_yetu/blob/master/screenshots/page_1.png)
