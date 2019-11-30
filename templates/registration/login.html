@@ -5,9 +5,12 @@
 <div class="columns">
     <div class="column is-half is-offset-one-fifth">
         <form action="" method="POST">
-            {% csrf_token %}
-            {{form | bulma}}
-            <button type="submit" class="button is-primary">Login</button>
+            <fieldset class="box">
+                <legend class="label has-text-centered title is-4">Sign In</legend>
+                {% csrf_token %}
+                {{form | bulma }}
+                <button type="submit" class="button is-primary">Login</button>
+            </fieldset>
         </form>
         <p>Don't have an account? <a href="{% url 'register'%}">Sign
                 Up</a></p>
