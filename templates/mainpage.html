@@ -31,7 +31,7 @@
                         </a>
                         {% elif user.is_authenticated %}
                         <span class="navbar-item">
-                            <a class="button is-success is-inverted" href="">
+                            <a class="button is-success is-inverted" href="{% url 'neighbourhood_list'%}">
                                 <span>Join a community</span>
                             </a>
                         </span>
