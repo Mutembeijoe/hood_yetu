@@ -19,9 +19,15 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        {% if user.isauthenticated %}
-                        <a class="navbar-item is-active">
-                            Home
+                        {% if user.is_authenticated %}
+                        <span class="navbar-item">
+                            <a class="button is-success is-inverted"
+                                href="{% url 'neighbourhood' user.neighbourhood.id %}">
+                                <span>To the Hood</span>
+                            </a>
+                        </span>
+                        <a class="navbar-item" href="{% url 'logout' %}">
+                            Logout
                         </a>
                         {% else %}
                         <a class="navbar-item" href="{% url 'login' %}">
