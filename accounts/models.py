@@ -8,7 +8,7 @@ from neighbourhood.models import Neighbourhood
 class CustomUser(AbstractUser):
     avatar = models.ImageField(upload_to='user_avatars', default='default.jpg')
     bio = models.TextField(blank=True, default='')
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name='residents', default=1, on_delete=models.SET_DEFAULT)
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='residents', blank=True, null=True, on_delete=models.SET_NULL)
 
 
     def get_absolute_url(self):
