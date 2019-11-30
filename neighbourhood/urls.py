@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import NeighbourhoodDetailView, NeighbourhoodListView, join_neighbourhood, leave_neighbourhood
+from .views import NeighbourhoodDetailView, NeighbourhoodListView, join_neighbourhood, leave_neighbourhood, CreateBusinessView
 # , search_results
 
 urlpatterns = [
@@ -7,5 +7,6 @@ urlpatterns = [
     path('all/', NeighbourhoodListView.as_view(), name='neighbourhood_list' ),
     path('join/<int:community_id>/',join_neighbourhood, name='join_neighbourhood' ),
     path('leave/<int:community_id>/',leave_neighbourhood, name='leave_neighbourhood' ),
+    path('business/create/',CreateBusinessView.as_view(), name='create_business' ),
     # path('business/search/',search_results),
 ]

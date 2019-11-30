@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView, TemplateView
+from django.views.generic import DetailView, ListView, TemplateView, CreateView
 from django.shortcuts import redirect
 from .models import Neighbourhood, Business
 
@@ -44,3 +44,13 @@ def leave_neighbourhood(request, community_id):
     #     return render(request,'neighbourhood.html', context={'object_list':businesses})
     # else:
     #     return render(request,'neighbourhood.html')
+
+
+class CreateBusinessView(CreateView):
+    model = Business
+    template_name = 'business_create.html'
+    fields = ('image','name','location','description','category')
+
+    def form_valid(self, form): 
+        form.instance.neighbourhood = self.request.user.neighbourhood
+        return super().form_valid(form)

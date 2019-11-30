@@ -44,7 +44,7 @@ class Business(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('neighbourhood', args=[self.neighbourhood.id])
 
     @classmethod
     def search_business(cls,search_term,hood):
