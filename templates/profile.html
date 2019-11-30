@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
 {% block content %}
+{% include 'navbar.html' %}
 <div class='columns'>
     <div class='container profile'>
         <div class='section profile-heading'>
@@ -34,24 +35,8 @@
         </div>
         <div class='box' style='border-radius: 0px;'>
             <!-- Main container -->
-            <div class='columns'>
-                <div class='column is-2-tablet user-property-count has-text-centered'>
-                    <p class='subtitle is-5'>
-                        <strong></strong>
-                        123
-                        <br>
-                        properties
-                    </p>
-                </div>
-                <div class='column is-8'>
-                    <p class='control has-addons'>
-                        <input class='input' placeholder='Search your liked properties' style='width: 100% !important'
-                            type='text'>
-                        <button class='button'>
-                            Search
-                        </button>
-                    </p>
-                </div>
+            <div class="has-text-centered">
+                <span class="is-4 title"> My posts</span>
             </div>
         </div>
         <div class='columns is-mobile'>
