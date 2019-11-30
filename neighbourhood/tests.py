@@ -15,6 +15,17 @@ class TestNeighbourhood(TestCase):
     def test_str_method(self):
         self.assertEqual(f'{self.test_hood}', 'test_hood')
 
+    def test_business_list_template_used(self):
+        response = self.client.get(reverse('neighbourhood_list'))
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'neighbourhood_list.html')
+
+    def test_business_detail_template_used(self):
+        response = self.client.get(reverse('neighbourhood', args=[self.test_hood.id]))
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'neighbourhood.html')
+
+
 
 
 class TestBusiness(TestCase):
