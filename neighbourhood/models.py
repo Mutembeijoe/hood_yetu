@@ -33,6 +33,7 @@ class Business(models.Model):
         (HOUSING, 'Housing'),
     ]
 
+    image = models.ImageField(upload_to='business_avatars', default='business.jpg')
     name = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
