@@ -14,7 +14,8 @@
                     <p>
                         <span class='title is-bold'>{{object.username}}</span>
                         <br>
-                        <a class='button is-primary is-outlined' href='#' id='edit-preferences' style='margin: 5px 0'>
+                        <a class='button is-primary is-outlined' href="{% url 'editprofile' user.id %}"
+                            id='edit-preferences' style='margin: 5px 0'>
                             Edit Preferences
                         </a>
                         <br>
