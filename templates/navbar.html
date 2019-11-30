@@ -19,37 +19,28 @@
             <a class="navbar-item">
                 Home
             </a>
-
-            <a class="navbar-item">
-                Documentation
-            </a>
-
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    More
-                </a>
-
-                <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        About
-                    </a>
-                    <a class="navbar-item">
-                        Jobs
-                    </a>
-                    <a class="navbar-item">
-                        Contact
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">
-                        Report an issue
-                    </a>
-                </div>
-            </div>
         </div>
 
         <div class="navbar-end">
             <div class="navbar-item">
                 {% if user.is_authenticated %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        {{user}}
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{% url 'profile' user.id %}">
+                            Profile
+                        </a>
+                        <a class="navbar-item">
+                            Update Profile
+                        </a>
+                        <hr class="navbar-divider">
+                        <a href="{% url 'logout' %}" class="navbar-item">
+                            Log Out
+                        </a>
+                    </div>
+                </div>
                 <div class="buttons">
                     <a href="{% url 'logout' %}" class="button is-light">
                         Log Out
