@@ -20,6 +20,12 @@
                                 Edit Preferences
                             </a>
                             <br>
+                            <a class='button is-danger is-outlined'
+                                href="{% url 'leave_neighbourhood' user.neighbourhood.id %}" id='edit-preferences'
+                                style='margin: 5px 0'>
+                                Leave {{object.neighbourhood}}
+                            </a>
+                            <br>
                         </p>
                         <p class='tagline'>
                             {{user.bio}}
