@@ -113,18 +113,21 @@
                         <div class='column is-2-tablet user-property-count has-text-centered'>
                             <p class='subtitle is-5'>
                                 <strong></strong>
-                                123
+                                {{object.businesses.all |length }}
                                 <br>
-                                properties
+                                businesses
                             </p>
                         </div>
                         <div class='column is-8'>
                             <p class='control has-addons'>
-                                <input class='input' placeholder='Search your liked properties'
-                                    style='width: 100% !important' type='text'>
-                                <button class='button'>
-                                    Search
-                                </button>
+                                <form id="business_search" action="" method="GET">
+                                    <input type="number" name='hood' value='{{object.id}}' hidden>
+                                    <input class='input' name="search_term"
+                                        placeholder='Search for businesses in {{object}}' type='text'>
+                                    <button class='button' type="submit">
+                                        Search
+                                    </button>
+                                </form>
                             </p>
                         </div>
                     </div>

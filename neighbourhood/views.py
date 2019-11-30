@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, TemplateView
 from django.shortcuts import redirect
-from .models import Neighbourhood
+from .models import Neighbourhood, Business
 
 # Create your views here.
 
@@ -33,3 +33,14 @@ def leave_neighbourhood(request, community_id):
         request.user.neighbourhood = None
         request.user.save()
         return redirect('mainpage')
+
+# def search_results(request):
+    # search_term = request.GET.get('search_term')
+    # hood = request.GET.get('hood')
+    # # print(search_results, hood)
+    
+    # businesses = Business.search_business(search_term,hood)
+    # if businesses:
+    #     return render(request,'neighbourhood.html', context={'object_list':businesses})
+    # else:
+    #     return render(request,'neighbourhood.html')

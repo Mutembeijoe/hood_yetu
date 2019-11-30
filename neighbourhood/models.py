@@ -45,3 +45,11 @@ class Business(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
+
+    @classmethod
+    def search_business(cls,search_term,hood):
+        return cls.objects.get(
+            models.Q(name__icontains = search_term),
+            models.Q(description__icontains =search_term),
+            models.Q(neighbourhood = hood)
+            )

@@ -13,7 +13,6 @@ $(document).ready(function () {
 
     // neighbourhood tabs
     $('#tab_header ul li.item').on('click', function () {
-        console.log('hello')
         var number = $(this).data('option');
         $('#tab_header ul li.item').removeClass('is-active');
         $(this).addClass('is-active');
@@ -21,5 +20,20 @@ $(document).ready(function () {
         $('div[data-item="' + number + '"]').addClass('is-active');
     });
 
+    // search form ajax
 
+    $('#business_search').submit(function (e) {
+        e.preventDefault();
+        // form = $('#business_search')
+        // console.log(form.serialize())
+        // $.ajax({
+        //     type: "GET",
+        //     url: "/neighbourhoods/business/search/",
+        //     data: form.serialize(),
+        //     dataType: "json",
+        //     success: function (response) {
+        //         console.log('success')
+        //     }
+        // });
+    });
 });

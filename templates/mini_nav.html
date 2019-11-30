@@ -1,4 +1,3 @@
-{% load static %}
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{% url 'mainpage'%}">
@@ -16,11 +15,9 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            {% if user.isauthenticated and user.neighbourhood != None %}
-            <a class="navbar-item" href="{%url 'neighbourhood' user.neighbourhood.id%}">
+            <a class="navbar-item" href="{%url 'mainpage'%}">
                 Home
             </a>
-            {% endif %}
         </div>
 
         <div class="navbar-end">
