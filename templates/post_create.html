@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+{% block content%}
+{% include 'navbar.html'%}
+<div class="columns">
+    <div class="column is-half is-offset-one-fifth">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form | bulma }}
+            <button class="button is-primary" type="submit">Create</button>
+        </form>
+    </div>
+</div>
+{% endblock content%}
