@@ -47,10 +47,10 @@
                     <span class="is-4 title"> My posts</span>
                 </div>
             </div>
-            <div class='columns is-mobile'>
+            <div class='columns is-multiline'>
                 {% for post in object.posts.all %}
-                <div class='column is-3-tablet is-6-mobile'>
-                    <div class="card">
+                <div class='column'>
+                    <div class="card" style="width: 310px;">
                         <header class="card-header">
                             <p class="card-header-title">
                                 <span class='tag is-dark subtitle'>#{{ forloop.counter }}</span>
