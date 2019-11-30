@@ -1,0 +1,1 @@
+web: gunicorn hoodyetu.wsgi --log-file -
