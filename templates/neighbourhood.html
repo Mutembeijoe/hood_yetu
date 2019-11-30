@@ -19,6 +19,20 @@
             </div>
         </div>
     </section>
+    <div>
+        <span><i class="fas fa-ambulance"></i> Hospital hotline
+            {% for num in object.hospital_hotline %}
+            <span>{{num}} </span>
+            {% endfor %}
+        </span>
+    </div>
+    <div>
+        <span><i class="fas fa-phone"></i> Police hotline
+            {% for num in object.police_hotline %}
+            <span>{{num}} </span>
+            {% endfor %}
+        </span>
+    </div>
     <div class="mytabs container" style='margin-top: 70px;'>
         <div class="tabs is-centered" id="tab_header">
             <ul>
