@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, UpdateView
 from django.urls import reverse_lazy
@@ -13,12 +14,14 @@ class UserRegistrationView(CreateView):
 
 
 
-class UserDetailView(DetailView):
+class UserDetailView(LoginRequiredMixin,DetailView):
     model = CustomUser
     template_name='profile.html'
+    login_url = 'login'
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = CustomUser
     template_name = 'edit_profile.html'
     fields = ('username', 'email', 'avatar', 'bio')
+    login_url = 'login'
     # success_url = reverse_lazy('profile', args=[self.object.id])
