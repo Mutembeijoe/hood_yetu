@@ -27,6 +27,11 @@ class TestPosts(TestCase):
     def test_str_method(self):
         self.assertEqual(f'{self.test_post}', 'test_post')
 
+    def test_login_mixin_redirect(self):
+        response = self.client.get(reverse('create_post'))
+        self.assertEqual(response.status_code,302)
+
+
     def test_post_create_template_used(self):
         response = self.client.get(reverse('create_post'))
         self.assertEqual(response.status_code,200)

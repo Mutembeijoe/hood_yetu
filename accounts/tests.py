@@ -26,7 +26,6 @@ class TestPosts(TestCase):
         self.assertEqual(resp.status_code,200)
 
     
-    def test_user_update_template_used(self):
+    def test_login_required_mixin(self):
         response = self.client.get(reverse('editprofile', args=[self.test_user.id]))
-        self.assertEqual(response.status_code,200)
-        self.assertTemplateUsed(response, 'edit_profile.html')
+        self.assertEqual(response.status_code,302)
