@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, UpdateView
 from django.urls import reverse_lazy
@@ -19,9 +20,15 @@ class UserDetailView(LoginRequiredMixin,DetailView):
     template_name='profile.html'
     login_url = 'login'
 
+    def dispatch(self, request, *args, **kwargs): # new
+        obj = self.get_object()
+        if obj != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
+
 class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = CustomUser
     template_name = 'edit_profile.html'
     fields = ('username', 'email', 'avatar', 'bio')
     login_url = 'login'
-    # success_url = reverse_lazy('profile', args=[self.object.id])
