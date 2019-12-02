@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, TemplateView, CreateView
 from django.shortcuts import redirect
@@ -12,6 +13,12 @@ class NeighbourhoodDetailView(LoginRequiredMixin,DetailView):
     model = Neighbourhood
     template_name = 'neighbourhood.html'
     login_url = 'login'
+
+    def dispatch(self, request, *args, **kwargs): # new
+        obj = self.get_object()
+        if obj.residents.filter(username=self.request.user.username).first() != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
 class NeighbourhoodListView(LoginRequiredMixin,ListView):
     model = Neighbourhood
